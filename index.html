@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Twitch OAuth Token</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-S7YMK1xjUjSpEnF4P8hPUcgjXYLZKK3fQW1j5ObLSl787II9p8RO9XUGehRmKsxd" crossorigin="anonymous">
+
+        <script src="./js/config.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="./js/twitch.min.js"></script>
+        <script src="./js/main.js" charset="utf-8"></script>
+        <style media="screen">
+            .token {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid text-center">
+            <div class="page-header">
+                <h1>Twitch OAuth Token</h1>
+            </div>
+
+            <div class="container">
+                <div class="connect">
+                    <h4>Select one or more scopes:</h4>
+                    <select class="form-control" id="scopes" multiple=""></select>
+                    <br>
+                    <a href="#" class="connect-btn"><img src="./img/twitch_connect.png" alt="Connect with Twitch" /></a>
+                </div>
+
+                <div class="token">
+                    <p class="text-info">Here's your Twitch OAuth token:</p>
+                    <div class="well"></div>
+                    
+                    <p class="text-info">Scopes:</p>
+                    <div class="list-group" id="list"></div>
+
+                    <a href="#" class="logout btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
