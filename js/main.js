@@ -12,7 +12,11 @@ var scopes = {
     "channel_check_subscription": "Read access to check if a user is subscribed to your channel.",
     "chat_login": "Ability to log into chat and send messages.",
     "channel_feed_read": "Ability to view to a channel feed.",
-    "channel_feed_edit": "Ability to add posts and reactions to a channel feed."
+    "channel_feed_edit": "Ability to add posts and reactions to a channel feed.",
+    "collections_edit": "Manage a user’s collections (of videos).",
+    "communities_edit": "Manage a user’s communities.",
+    "communities_moderate": "Manage community moderators.",
+    "viewing_activity_read": "Turn on Viewer Heartbeat Service ability to record user data."
 };
 
 $(document).ready(function() {
