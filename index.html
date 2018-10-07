@@ -12,6 +12,10 @@
         <script src="./js/twitch.min.js"></script>
         <script src="./js/main.js" charset="utf-8"></script>
         <style media="screen">
+            body {
+                padding-bottom: 90px;
+            }
+
             .token {
                 display: none;
             }
@@ -23,9 +27,25 @@
                 <h1>Twitch OAuth Token</h1>
             </div>
 
+            <div class="container">
+                <div class="text-default">
+                    This is an OAuth token generator for the Twitch API. It includes the <a href="https://dev.twitch.tv/docs/authentication/#scopes">scopes
+                        for both the "New Twitch API" (aka Helix) and the "old" API called Kraken or V5</a>.
+                    <br>
+                    The source code for this page is available on <a href="https://github.com/Decicus/twitch-oauth-token/">GitHub</a>
+                </div>
+
+                <h4>Scope reference:</h4>
+                <ul class="list-group">
+                    <div class="list-group-item">Scopes with an underscore (<code>_</code>) are tied to Kraken / V5.</div>
+                    <div class="list-group-item">Scopes with a colon (<code>:</code>) belong to the Helix / new Twitch API.</div>
+                    <div class="list-group-item">The scope <code>openid</code> includes neither, but belongs to Kraken / V5.</div>
+                </ul>
+            </div>
+
             <div class="container-fluid">
                 <div class="connect">
-                    <h4>Select one or more scopes:</h4>
+                    <h4>Select one or more (<kbd>CTRL/CMD + Click</kbd>) scopes, then click the button below:</h4>
                     <select class="form-control" id="scopes" multiple=""></select>
                     <br>
                     <a href="#" class="connect-btn"><img src="./img/twitch_connect.png" alt="Connect with Twitch" /></a>
@@ -34,18 +54,12 @@
                 <div class="token">
                     <p class="text-info">Here's your Twitch OAuth token:</p>
                     <div class="well"></div>
-                    
+
                     <p class="text-info">Scopes:</p>
                     <div class="list-group" id="list"></div>
 
                     <a href="#" class="logout btn btn-danger">Logout</a>
                 </div>
-                
-                <nav class="navbar navbar-default navbar-fixed-bottom">
-                    <div class="container-fluid">
-                        <p class="navbar-text pull-right">Source code is available on <a href="https://github.com/Decicus/twitch-oauth-token/">GitHub</a></p>
-                    </div>
-                </nav>
             </div>
         </div>
     </body>
