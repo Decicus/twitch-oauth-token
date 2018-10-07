@@ -16,7 +16,20 @@ var scopes = {
     "collections_edit": "Manage a user’s collections (of videos).",
     "communities_edit": "Manage a user’s communities.",
     "communities_moderate": "Manage community moderators.",
-    "viewing_activity_read": "Turn on Viewer Heartbeat Service ability to record user data."
+    "viewing_activity_read": "Turn on Viewer Heartbeat Service ability to record user data.",
+    "openid": "Use OpenID Connect authentication.",
+
+    /**
+     * Helix scopes
+     */
+    "analytics:read:extensions": "View analytics data for your extensions.",
+    "analytics:read:games": "View analytics data for your games.",
+    "bits:read": "View Bits information for your channel.",
+    "clips:edit": "Manage a clip object.",
+    "user:edit": "Manage a user object.",
+    "user:edit:broadcast": "Edit your channel’s broadcast configuration, including extension configuration. (This scope implies user:read:broadcast capability.)",
+    "user:read:broadcast": "View your broadcasting configuration, including extension configurations.",
+    "user:read:email": "Read authorized user’s email address.",
 };
 
 $(document).ready(function() {
@@ -24,9 +37,7 @@ $(document).ready(function() {
         connect = $('.connect'),
         token = $('.token'),
         hash = window.location.hash.replace('#', '');
-        
-    console.log(hash);
-    
+
     container.attr('size', Object.keys(scopes).length);
     var split = hash.split("+");
     $.each(scopes, function(scope, description) {
@@ -34,12 +45,12 @@ $(document).ready(function() {
             .attr('id', scope)
             .html(scope + ' &mdash; ' + description)
             .appendTo(container);
-            
+
         if (split.indexOf(scope) >= 0) {
             $('#' + scope, container).attr('selected', "selected");
-        }        
+        }
     });
-    
+
     Twitch.init({clientId: client_id}, function(err, stat) {
         if (stat.authenticated) {
             var authToken = Twitch.getToken();
@@ -62,7 +73,7 @@ $(document).ready(function() {
             var scope = $(this).attr('id');
             auth.push(scope);
         });
-        
+
         Twitch.login({
             scope: auth,
             force_verify: true
