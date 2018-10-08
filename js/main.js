@@ -55,7 +55,7 @@ $(document).ready(function() {
         if (stat.authenticated) {
             var authToken = Twitch.getToken();
             connect.hide();
-            $('.well', token).html(authToken);
+            $('#token-value', token).html(authToken);
             $.each(stat.scope, function(key, scope) {
                 $('#list', token).append(
                     $('<li/>')

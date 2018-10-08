@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Twitch OAuth Token</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-S7YMK1xjUjSpEnF4P8hPUcgjXYLZKK3fQW1j5ObLSl787II9p8RO9XUGehRmKsxd" crossorigin="anonymous">
+        <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-w+yWASP3zYNxxvwoQBD5fUSc1tctKq4KUiZzxgkBSJACiUp+IbweVKvsEhMI+gz7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
         <script src="./js/config.js" charset="utf-8"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
         <script src="./js/twitch.min.js"></script>
         <script src="./js/main.js" charset="utf-8"></script>
         <style media="screen">
@@ -23,42 +23,70 @@
     </head>
     <body>
         <div class="container-fluid text-center">
-            <div class="page-header">
-                <h1>Twitch OAuth Token</h1>
-            </div>
-
-            <div class="container">
-                <div class="text-default">
-                    This is an OAuth token generator for the Twitch API. It includes the <a href="https://dev.twitch.tv/docs/authentication/#scopes">scopes
-                        for both the "New Twitch API" (aka Helix) and the "old" API called Kraken or V5</a>.
-                    <br>
-                    The source code for this page is available on <a href="https://github.com/Decicus/twitch-oauth-token/">GitHub</a>
+            <div class="card">
+                <div class="card-header bg-info">
+                    <h4>(Unofficial) Twitch OAuth Token Generator</h4>
                 </div>
 
-                <h4>Scope reference:</h4>
-                <ul class="list-group">
-                    <div class="list-group-item">Scopes with an underscore (<code>_</code>) are tied to Kraken / V5.</div>
-                    <div class="list-group-item">Scopes with a colon (<code>:</code>) belong to the Helix / new Twitch API.</div>
-                    <div class="list-group-item">The scope <code>openid</code> includes neither, but belongs to Kraken / V5.</div>
-                </ul>
-            </div>
-
-            <div class="container-fluid">
-                <div class="connect">
-                    <h4>Select one or more (<kbd>CTRL/CMD + Click</kbd>) scopes, then click the button below:</h4>
-                    <select class="form-control" id="scopes" multiple=""></select>
-                    <br>
-                    <a href="#" class="connect-btn"><img src="./img/twitch_connect.png" alt="Connect with Twitch" /></a>
+                <div class="card-body">
+                    <p class="card-text">
+                        This is an <i>unofficial</i> OAuth token generator for the Twitch API. It includes the <a href="https://dev.twitch.tv/docs/authentication/#scopes">scopes for both the "New Twitch API" (aka Helix) and the "old" API called Kraken / V5</a>
+                    </p>
                 </div>
 
-                <div class="token">
-                    <p class="text-info">Here's your Twitch OAuth token:</p>
-                    <div class="well"></div>
+                <div class="card-footer">
+                    <a href="https://github.com/Decicus/twitch-oauth-token/" class="btn btn-primary">Source code on <i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
 
-                    <p class="text-info">Scopes:</p>
-                    <div class="list-group" id="list"></div>
+            <br>
 
-                    <a href="#" class="logout btn btn-danger">Logout</a>
+            <div class="card">
+                <div class="card-header bg-info">
+                    <h4>Scope reference</h4>
+                </div>
+
+                <div class="card-body">
+                    <ul class="list-group">
+                        <div class="list-group-item">Scopes with an underscore (<code>_</code>) are tied to <strong>Kraken / V5</strong>.</div>
+                        <div class="list-group-item">Scopes with a colon (<code>:</code>) belong to the <strong>Helix / new Twitch API</strong>.</div>
+                        <div class="list-group-item">The scope <code>openid</code> is a small exception, but belongs to <strong>Kraken / V5</strong>.</div>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card">
+                <div class="card-header bg-success">
+                    <h5>
+                        <span class="connect">Select one or more (<kbd>CTRL/CMD + Click</kbd>) scopes, then click the button below:</span>
+                        <span class="token">Here's your Twitch OAuth token:</span>
+                    </h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="connect card-text">
+                        <select class="form-control" id="scopes" multiple=""></select>
+                        <br>
+                    </div>
+
+                    <div class="token card-text">
+                        <p class="text-success text-monospace" id="token-value"></p>
+
+                        <h6 class="text-info">Scopes:</h6>
+                        <div class="list-group" id="list"></div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="connect">
+                        <a href="#" class="connect-btn"><img src="./img/twitch_connect.png" alt="Connect with Twitch" /></a>
+                    </div>
+
+                    <div class="token">
+                        <a href="#" class="logout btn btn-danger">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
