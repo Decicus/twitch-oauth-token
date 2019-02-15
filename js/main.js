@@ -25,6 +25,7 @@ var scopes = {
     "analytics:read:extensions": "View analytics data for your extensions.",
     "analytics:read:games": "View analytics data for your games.",
     "bits:read": "View Bits information for your channel.",
+    "channel:read:subscriptions": "Get a list of all subscribers to your channel and check if a user is subscribed to your channel",
     "clips:edit": "Manage a clip object.",
     "user:edit": "Manage a user object.",
     "user:edit:broadcast": "Edit your channel’s broadcast configuration, including extension configuration. (This scope implies user:read:broadcast capability.)",
