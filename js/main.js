@@ -25,12 +25,17 @@ var scopes = {
     "analytics:read:extensions": "View analytics data for your extensions.",
     "analytics:read:games": "View analytics data for your games.",
     "bits:read": "View Bits information for your channel.",
+    "channel:moderate": "Perform moderation actions in a channel. The user requesting the scope must be a moderator in the channel.",
     "channel:read:subscriptions": "Get a list of all subscribers to your channel and check if a user is subscribed to your channel",
+    "chat:edit": "Send live stream chat and rooms messages.",
+    "chat:read": "View live stream chat and rooms messages.",
     "clips:edit": "Manage a clip object.",
     "user:edit": "Manage a user object.",
     "user:edit:broadcast": "Edit your channel’s broadcast configuration, including extension configuration. (This scope implies user:read:broadcast capability.)",
     "user:read:broadcast": "View your broadcasting configuration, including extension configurations.",
     "user:read:email": "Read authorized user’s email address.",
+    "whispers:read": "View your whisper messages.",
+    "whispers:edit": "Send whisper messages.",
 };
 
 $(document).ready(function() {
